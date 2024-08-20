@@ -1,5 +1,8 @@
 <template>
-    <div>
+    <div class = "category-wrapper">
+      <div class = "category-header">
+        <h1>Categories</h1>
+      </div>
       <div v-if="loading">Loading...</div>
       <div v-if="error">{{ error }}</div>
       <ul class="fetched-api" v-if="data && !loading">
@@ -49,17 +52,30 @@
   </script>
   
   <style scoped>
-   img {
-    width: 100%;
-}
+
+  .category-wrapper {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .category-wrapper .category-header h1 {
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+
+  .category-wrapper .categoryList li {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .category-wrapper .categoryList img{
+    height: 45px;
+    width: 45px;
+  }
 
 .categoryList{
-    width: 100%;
     grid-auto-flow: column;
-    overflow-x: auto;
-    grid-auto-columns:  calc(calc(100% - 84px) / 5);
     display: grid;
-    gap: 0 16px;
 }
 
 ul{
